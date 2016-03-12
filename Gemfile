@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
+    gem 'tzinfo-data', platform: [:mingw, :mswin, :x64_mingw]
 end
 
 group :development do
