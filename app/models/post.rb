@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   validate :clickbate
 
   def clickbate
-   title_options = /Won't Believe|Secret|Top[0-9]|Guess/
+   title_options = /Won't Believe|Secret|Top[0-9]|Guess/i
    if self.title.scan(title_options).length < 1
     errors.add(:title, "This title must contain some clickbate!")
    end if self.title
