@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
 
 
   def title_contains_clickbate
-    if title
-      CLICKBAIT.any? {|word| title.include?(word)}
+    if CLICKBAIT.any? {|word| title.include?(word)}
+      errors.add(:title, "must contain clickbait")
     end
   end
 
