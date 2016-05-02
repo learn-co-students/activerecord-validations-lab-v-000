@@ -15,11 +15,7 @@ class Post < ActiveRecord::Base
     end
   end
 
-  #def clickbaity
-#  if !title.to_s.include?("Won't Believe" || "Secret" || "Top" || "Guess")
-#    errors.add(:title, "must be clickbait")
-#  end
-#end
+
 
   
 end
