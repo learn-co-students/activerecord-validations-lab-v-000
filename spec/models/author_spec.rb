@@ -12,7 +12,9 @@ RSpec.describe Author, type: :model do
   end
 
   it "is invalid with a short number" do
+# binding.pry
     author = Author.new(name: "Caligula", phone_number: 555305442)
+# binding.pry
     expect(author).to be_invalid
   end
 
