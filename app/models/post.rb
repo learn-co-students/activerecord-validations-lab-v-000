@@ -8,8 +8,6 @@ validate :validate, on: :create
   def validate
     if /(Won't Believe)|(Secret)|(Guess)|((Top) *[0-9])/.match(self.title) == nil
       errors.add(:title)
-    else
-      true
     end
   end
 
