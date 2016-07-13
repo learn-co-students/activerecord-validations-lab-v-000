@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
 
   def clickbait?
     if CLICKBAIT_KEYWORDS.none? { |keyword| keyword.match title }
-      errors.add(:title, "does not contain clickbait terms")
+      errors.add(:title, "Does not contain clickbait terms.")
     end
   end
 
