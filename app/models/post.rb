@@ -4,12 +4,17 @@ class Post < ActiveRecord::Base
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: ["Fiction", "Non-Fiction"],
     message: "%{value} is not a valid category" }
-  validate :clickbait?
+  validate :is_clickbait?
 
-  CLICKBAIT = [/Won't Believe/i, /Secret/i, /Top[0-9]/i, /Guess/i]
+  CLICKBAIT_PATTERNS = [
+    /Won't Believe/i,
+     /Secret/i, 
+     /Top [0-9]*/i, 
+     /Guess/i
+   ]
 
-  def clickbait?
-    if CLICKBAIT.none? { |pat| pat.match self.title }
+  def is_clickbait?
+    if CLICKBAIT_PATTERNS.none? { |pat| pat.match self.title }
       errors.add(:title, "This is not clickbait!")
     end
   end
