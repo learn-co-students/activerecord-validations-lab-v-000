@@ -1,13 +1,13 @@
-class ClickbaitValidator < ActiveModel::EachValidator
+# class ClickbaitValidator < ActiveModel::EachValidator
 
-def validate_each(record, attribute, value)
+# def validate_each(record, attribute, value)
 
-      unless value.include?("Won't Believe") || value.include?("Secret") || value.include?("Top [number]") || value.include?("Guess")
-        record.errors[attribute] << (options[:message] || "not clickbaity enough")
-      end
-    end
+#       unless value.include?("Won't Believe") || value.include?("Secret") || value.include?("Top [number]") || value.include?("Guess")
+#         record.errors[attribute] << (options[:message] || "not clickbaity enough")
+#       end
+#     end
 
-end
+# end
 
 
 
