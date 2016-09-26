@@ -1,6 +1,14 @@
 class Post < ActiveRecord::Base
-  include ActiveModel::Validations
-  validates_with MyValidator
+
+  def clickbait
+    num = /[0..9]*/
+      t = [/Won't Believe/i, /Secret/i, /Top #{num}/i, /Guess/i]
+      if !t.any? { |pat| pat.match(title) }
+      errors.add(:title, "the title must be must be clickbait")
+    end
+  end
+
+  validate :clickbait
 
   validates :title, presence: true
   validates :content, length: { minimum: 250}

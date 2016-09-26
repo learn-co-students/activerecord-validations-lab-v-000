@@ -6,6 +6,4 @@ class MyValidator < ActiveModel::Validator
     record.title.starts_with?("Won't Believe", "Secret", "Top #{num}", "Guess")
    end
 
-   
-
 end
