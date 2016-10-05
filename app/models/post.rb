@@ -10,10 +10,10 @@ class Post < ActiveRecord::Base
   validate :is_clickbait?
 
   CLICKBAIT_PATTERNS = [
-    /Won't Believe/i,
-    /Secret/i,
-    /Top [0-9]*/i,
-    /Guess/i
+    /Won't Believe/,
+    /Secret/,
+    /Top [0-9]*/,
+    /Guess/
   ]
 
   def is_clickbait?
@@ -21,4 +21,6 @@ class Post < ActiveRecord::Base
       errors.add(:title, "must be clickbait")
     end
   end
+
+
 end
