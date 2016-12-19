@@ -1,7 +1,4 @@
-
-
-
-
+require "pry"
 class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :content, length: {minimum: 250}
@@ -10,8 +7,7 @@ class Post < ActiveRecord::Base
   validate :clickbaity
 
   def clickbaity
-    self.title.split.each do |word|
-    if ["Won't Believe","Secret","Top[number]","Guess"].include?(word)
+    unless !title || title.match(/Won't Believe|Top[number]|Secret|Guess/)
       errors.add(:clickbaity, "Not clickbaity")
     end
   end
