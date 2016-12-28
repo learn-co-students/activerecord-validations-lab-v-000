@@ -1,18 +1,19 @@
 class Post < ActiveRecord::Base
-  include ActiveModel::Validations
-  validates_with MyValidator
 
   validates :title, presence: true
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
 
-end
-
-class MyValidator < ActiveModel::Validator
-  def validate(record)
-    unless record.title.include?("Won't Believe", "Secret", "Guess")
-      record.errors[:name] << "Not a valid title"
+  class MyValidator < ActiveModel::Validator
+    def validate(record)
+      unless record.title =~ /Won't Believe|Secret|Guess|Top [0-9]/i
+        record.errors[:name] << "Not a valid title"
+      end
     end
   end
+
+  include ActiveModel::Validations
+  validates_with MyValidator
+
 end
