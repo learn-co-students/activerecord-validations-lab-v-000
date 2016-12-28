@@ -7,7 +7,7 @@ class MyValidator < ActiveModel::Validator
   # a =~ /Top [0-9]/
 
   def validate(record)
-    unless record.title.include?("Won't Believe", "Secret", "Guess", title)
+    unless record.title.include?("Won't Believe", "Secret", "Guess")
       record.errors[:name] << "Not a valid title"
     end
   end
