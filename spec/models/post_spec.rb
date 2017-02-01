@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe Post, type: :model do
   let(:content) { "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, nulla vel condimentum ornare, arcu lorem hendrerit purus, ac sagittis ipsum nisl nec erat. Morbi porta sollicitudin leo, eu cursus libero posuere ac. Sed ac ultricies ante. Donec nec nulla ipsum. Nunc eleifend, ligula ut volutpat." }
@@ -12,12 +13,12 @@ RSpec.describe Post, type: :model do
     }
   end
 
-  let(:valid_post) { Post.new(valid_attrs) }
-  let(:missing_title) { Post.new(valid_attrs.except(:title)) }
-  let(:short_content) { Post.new(valid_attrs.merge(content: "too short")) }
-  let(:long_summary) { Post.new(valid_attrs.merge(summary: content)) }
-  let(:invalid_cat) { Post.new(valid_attrs.merge(category: "Bowling Ball")) }
-  let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
+   let(:valid_post) { Post.new(valid_attrs) }
+   let(:missing_title) { Post.new(valid_attrs.except(:title)) }
+   let(:short_content) { Post.new(valid_attrs.merge(content: "too short")) }
+   let(:long_summary) { Post.new(valid_attrs.merge(summary: content)) }
+   let(:invalid_cat) { Post.new(valid_attrs.merge(category: "Bowling Ball")) }
+   let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
 
   it "is valid" do
     expect(valid_post).to be_valid
