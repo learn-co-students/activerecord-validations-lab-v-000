@@ -10,7 +10,8 @@ class Post < ActiveRecord::Base
 	def must_be_clickbait
 		titles = ["Won't Believe", "Secret", "Top [number]", "Guess"]
 		if title?
-			errors.add(:title, "must be clickbait") unless titles.any? { |word| title.include?(word)}
+
+			errors.add(:title, "must be clickbait") unless titles.any? { |phrase| title.include?(phrase)}
 		end
 	end
 
