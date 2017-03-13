@@ -25,6 +25,7 @@ RSpec.describe Post, type: :model do
 
   it "is invalid without a title" do
     expect(missing_title).to be_invalid
+    
   end
 
   it "is invalid with too short content" do
@@ -40,6 +41,7 @@ RSpec.describe Post, type: :model do
   end
 
   it "is invalid if not clickbait" do
+    
     expect(non_clickbait).to be_invalid
   end
 end
