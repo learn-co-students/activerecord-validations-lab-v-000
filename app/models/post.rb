@@ -1,8 +1,6 @@
-require 'pry'
 
 class MyValidator < ActiveModel::Validator
   def validate(record)
-    #binding.pry
     words = ["Won't Believe", "Secret", "Top [number]", "Guess"]
     words.any? {|word| return if record.title.include?(word)} unless record.title.nil?
     record.errors.add :title
