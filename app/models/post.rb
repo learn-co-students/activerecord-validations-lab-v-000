@@ -9,10 +9,7 @@ class Post < ActiveRecord::Base
   CLICKBAIT = ["Top [Number]", "Secret", "Guess", "Won't Believe"]
 
   def not_clickbait
-
-    if title
-      errors.add(:title, "is not valid") unless CLICKBAIT.any? {|item| title.include?(item)}
-    end
+    errors.add(:title, "is not valid") unless CLICKBAIT.any? { |nonsense| title && title.include?(nonsense) }
   end
 
 end
