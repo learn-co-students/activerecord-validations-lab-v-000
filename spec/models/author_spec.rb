@@ -4,7 +4,7 @@ RSpec.describe Author, type: :model do
   it "is valid" do
     author = Author.new(name: "Caligula", phone_number: 5553054425)
     expect(author).to be_valid
-  end
+  end 
 
   it "is invalid with no name" do
     author = Author.new(phone_number: 5553054425)
