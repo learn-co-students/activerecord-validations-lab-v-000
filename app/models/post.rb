@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   validate :is_clickbait?
 
   def is_clickbait?
-    if self.title?
+    if self.title
       errors.add(:title, "must be click bait") unless self.title.include?("Won't Believe" || "Secret" || /Top \d/ || "Guess")
     end
   end
