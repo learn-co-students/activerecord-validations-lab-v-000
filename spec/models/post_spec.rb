@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'pry'
 RSpec.describe Post, type: :model do
   let(:content) { "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, nulla vel condimentum ornare, arcu lorem hendrerit purus, ac sagittis ipsum nisl nec erat. Morbi porta sollicitudin leo, eu cursus libero posuere ac. Sed ac ultricies ante. Donec nec nulla ipsum. Nunc eleifend, ligula ut volutpat." }
 
@@ -18,6 +18,7 @@ RSpec.describe Post, type: :model do
   let(:long_summary) { Post.new(valid_attrs.merge(summary: content)) }
   let(:invalid_cat) { Post.new(valid_attrs.merge(category: "Bowling Ball")) }
   let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
+  let(:non_top) { Post.new(valid_attrs.merge(title: "Top")) }
 
   it "is valid" do
     expect(valid_post).to be_valid
@@ -41,5 +42,9 @@ RSpec.describe Post, type: :model do
 
   it "is invalid if not clickbait" do
     expect(non_clickbait).to be_invalid
+  end
+
+  it "is invalid if top does not include number" do
+    expect(non_top).to be_invalid
   end
 end
