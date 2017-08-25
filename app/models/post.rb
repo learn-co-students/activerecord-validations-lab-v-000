@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
 
   def title_category
-    if self.title == true
+    if self.title
       if self.title.include?("Won't Believe")|| self.title.include?("Secret")||self.title.include?("Guess")||self.title.include?("Top")
         return true
       else
