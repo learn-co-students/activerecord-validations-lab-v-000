@@ -44,7 +44,7 @@ RSpec.describe Post, type: :model do
     expect(non_clickbait).to be_invalid
   end
 
-  # it "is valid if clickbait" do
-  #   expect(clickbait).to be_valid
-  # end
+  it "is valid if clickbait" do
+    expect(clickbait).to be_valid
+  end
 end
