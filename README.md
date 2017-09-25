@@ -28,3 +28,6 @@ It will give you a sense of what's available and help with creating
 validations for your own model objects.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/activerecord-validations-lab'>ActiveRecord Validations Lab</a> on Learn.co and start learning to code for free.</p>
+
+regex quick reference
+http://www.zenspider.com/ruby/quickref.html#types
