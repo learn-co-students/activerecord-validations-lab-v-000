@@ -31,3 +31,9 @@ validations for your own model objects.
 
 regex quick reference
 http://www.zenspider.com/ruby/quickref.html#types
+
+regex tutorial:
+http://ruby.bastardsbook.com/chapters/regexes/
+
+regex sandbox
+https://regexr.com/
