@@ -35,5 +35,63 @@ http://www.zenspider.com/ruby/quickref.html#types
 regex tutorial:
 http://ruby.bastardsbook.com/chapters/regexes/
 
-regex sandbox
+interactive regex builder at gskinner.com
 https://regexr.com/
+
+irb for checkbait
+
+Last login: Mon Sep 25 20:01:08 on console
+[20:46:55] ~ $ irb
+2.4.0 :001 >   CLICKBAIT_PATTERNS = [
+2.4.0 :002 >       /Won't Believe/i,
+2.4.0 :003 >       /Secret/i,
+2.4.0 :004 >       /Top [0-9]*/i,
+2.4.0 :005 >       /Guess/i
+2.4.0 :006?>   ]
+ => [/Won't Believe/i, /Secret/i, /Top [0-9]*/i, /Guess/i]
+2.4.0 :007 > CLICKBAIT_PATTERNS.none? { |pat| pat.match title }
+NameError: undefined local variable or method `title' for main:Object
+	from (irb):7:in `block in irb_binding'
+	from (irb):7:in `each'
+	from (irb):7:in `none?'
+	from (irb):7
+	from /Users/charlielee/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+2.4.0 :008 > title="must be clickbait"
+ => "must be clickbait"
+2.4.0 :009 > title
+ => "must be clickbait"
+2.4.0 :010 > CLICKBAIT_PATTERNS.none? { |pat| pat.match title }
+ => true
+2.4.0 :011 > CLICKBAIT_PATTERNS.none?
+ => false
+2.4.0 :012 > { |pat| pat.match title }
+2.4.0 :013 > /Won't Believe/i = pat
+2.4.0 :014 > pat = /Won't Believe/i
+ => /Won't Believe/i
+2.4.0 :015 > pat.match title
+ => nil
+2.4.0 :016 > pat.match == title
+ArgumentError: wrong number of arguments (given 0, expected 1..2)
+	from (irb):16:in `match'
+	from (irb):16
+	from /Users/charlielee/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+2.4.0 :017 > pat.match == title?
+ArgumentError: wrong number of arguments (given 0, expected 1..2)
+	from (irb):17:in `match'
+	from (irb):17
+	from /Users/charlielee/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+2.4.0 :018 > pat.match? title
+ => false
+2.4.0 :019 > pat = /Secret/i
+ => /Secret/i
+2.4.0 :020 > pat.match? title
+ => false
+2.4.0 :021 > pat = /Top [0-9]*/i
+ => /Top [0-9]*/i
+2.4.0 :022 > pat.match? title
+ => false
+2.4.0 :023 > pat = /Guess/i
+ => /Guess/i
+2.4.0 :024 > pat.match? title
+ => false
+2.4.0 :025 >
