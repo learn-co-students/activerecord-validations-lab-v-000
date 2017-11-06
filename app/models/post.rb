@@ -6,8 +6,11 @@ class Post < ActiveRecord::Base
   validate :title_is_clickbaity
 
 
-    def title_is_clickbaity
-      if title.nil? || title.include?("Won't Believe" || "Secret" || /Top \d+/ || "Guess")
-        errors.add(:title, "Not clickbait-y enough!" )
+
+  def title_is_clickbaity
+    if title.nil? || !title.include?("Won't Believe" || "Secret" || /Top \d+/ || "Guess")
+      errors.add(:title, "Not clickbait-y enough!" )
     end
+  end
+
 end
