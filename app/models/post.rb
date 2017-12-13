@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   def is_clickbait
     if title.present?
-      unless title.match /Won't Believe | Secret | Top \d | Guess/
+      unless title.match /Won't Believe | Secret | Top \d+ | Guess/
         errors.add(:title, 'is not clickbait')
       end
     end
