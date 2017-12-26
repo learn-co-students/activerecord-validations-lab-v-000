@@ -2,7 +2,7 @@ class CreateAuthors < ActiveRecord::Migration
   def change
     create_table :authors do |t|
       t.string :name
-      t.string :phone_number
+      t.integer :phone_number # I changed from string to integer
 
       t.timestamps null: false
     end
