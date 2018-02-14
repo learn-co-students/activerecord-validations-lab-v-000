@@ -1,7 +1,14 @@
+class TitleValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    unless value =~ /.*Won't Believe.*|.*Secret.*|.*Top [[:digit:]].*|.*Guess.*/
+      record.errors[attribute] << (options[:message] || "not clickbait-y")
+    end
+  end
+end
+
 class Post < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, presence: true, title: true
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
-  validates :title, inclusion: { in: "Won't Believe", "Secret", "Guess" }
 end
