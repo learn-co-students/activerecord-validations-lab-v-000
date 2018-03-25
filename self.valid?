@@ -1,0 +1,9 @@
+=> [32m#<Post:0x00000001cd21b0[0m
+ id: [1;36mnil[0m,
+ title: [31m[1;31m"[0m[31mYou Won't Believe These True Facts[1;31m"[0m[31m[0m,
+ content:
+  [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, nulla vel condimentum ornare, arcu lorem hendrerit purus, ac sagittis ipsum nisl nec erat. Morbi porta sollicitudin leo, eu cursus libero posuere ac. Sed ac ultricies ante. Donec nec nulla ipsum. Nunc eleifend, ligula ut volutpat.[1;31m"[0m[31m[0m,
+ summary: [31m[1;31m"[0m[31mAbstract.[1;31m"[0m[31m[0m,
+ category: [31m[1;31m"[0m[31mFiction[1;31m"[0m[31m[0m,
+ created_at: [1;36mnil[0m,
+ updated_at: [1;36mnil[0m[32m>[0m
