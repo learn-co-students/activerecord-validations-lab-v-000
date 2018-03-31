@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   def title_is_clickbaity
     if title != nil
       if !(title.include?("Won't Believe") || title.include?( "Secret") || title.include?("Top [number]") || title.include?("Guess"))
-        errors.add(:title, "Title is not clickbaity")
+        errors.add(:title, "Title must be not clickbaity")
       end
     end
 
