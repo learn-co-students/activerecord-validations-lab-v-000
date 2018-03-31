@@ -1,4 +1,5 @@
-class Post < ActiveRecord::Base
+class Post < ActiveRecord::Base 
+
   validates :title, presence: true
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
@@ -12,4 +13,4 @@ class Post < ActiveRecord::Base
       errors.add(:title, "title is not clickbaity enough")
     end
   end
-end
+end 
