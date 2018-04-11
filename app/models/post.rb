@@ -7,12 +7,8 @@ class Post < ActiveRecord::Base
 
 
   def clickbait?
-    
-    if self.title 
-      
-      return !!/Won't Believe|Secret|Guess/.match(self.title)
-      
-      
+    if !!self.title && !/Won't Believe|Secret|Guess/.match(self.title)
+      errors.add(:title, "not clickbait-y")
     end
   end
 end
