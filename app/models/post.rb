@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   def but_is_it_clickbait
     if self.title
-      if ["won't believe", "secret", "Top #{/\d/}", "guess"].any? { |clickbait| self.title.downcase.include?(clickbait) } == false
+      if ["won't believe", "secret", "Top #{/\d+/}", "guess"].any? { |clickbait| self.title.downcase.include?(clickbait) } == false
         errors.add(:title, "Gotta have that clickbait, bruh")
       end
     end
