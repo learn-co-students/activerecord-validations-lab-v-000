@@ -42,4 +42,6 @@ class Post < ActiveRecord::Base
   #   end
   # end
 
+  # /i in regex means ignore case , can use 1 or more single letter options to control how pattern is matched
+
 end
