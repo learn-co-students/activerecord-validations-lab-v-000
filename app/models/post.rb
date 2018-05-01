@@ -3,14 +3,14 @@ class Post < ActiveRecord::Base
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
+  validate :catchy_title?
 
-  def invalid?
-    unless self.title.include? ("Won't Believe") || self.title.include? ("Secret") || self.title.include? (/Top\s\d*\s/) || self.title.include? ("")
-    true
+
+  def catchy_title?
+    if !title.to_s.include?("Won't Believe" || "Secret" || "Top [number]" || "Guess")
+            errors.add(:title, "Must include keyword")
+    end
   end
-
-  def invalid?
-    ["Won't Believe", "Secret", /Top\s\d*\s/, "Guess"].any? { |keyword| self.title.include? keyword}
 
 
 end
