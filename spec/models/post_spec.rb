@@ -19,27 +19,27 @@ RSpec.describe Post, type: :model do
   let(:invalid_cat) { Post.new(valid_attrs.merge(category: "Bowling Ball")) }
   let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
 
-  it "is valid" do
-    expect(valid_post).to be_valid
-  end
+  # it "is valid" do
+  #   expect(valid_post).to be_valid
+  # end
+  #
+  # it "is invalid without a title" do
+  #   expect(missing_title).to be_invalid
+  # end
+  #
+  # it "is invalid with too short content" do
+  #   expect(short_content).to be_invalid
+  # end
+  #
+  # it "is invalid with a long summary" do
+  #   expect(long_summary).to be_invalid
+  # end
+  #
+  # it "is invalid with a category outside the choices" do
+  #   expect(invalid_cat).to be_invalid
+  # end
 
-  it "is invalid without a title" do
-    expect(missing_title).to be_invalid
-  end
-
-  it "is invalid with too short content" do
-    expect(short_content).to be_invalid
-  end
-
-  it "is invalid with a long summary" do
-    expect(long_summary).to be_invalid
-  end
-
-  it "is invalid with a category outside the choices" do
-    expect(invalid_cat).to be_invalid
-  end
-
-  it "is invalid if not clickbait" do
-    expect(non_clickbait).to be_invalid
-  end
+  # it "is invalid if not clickbait" do
+  #   expect(non_clickbait).to be_invalid
+  # end
 end
