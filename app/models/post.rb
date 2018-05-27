@@ -8,10 +8,10 @@ class Post < ActiveRecord::Base
   validate :is_clickbait?
 
 
-    CLICKBAIT_PHRASES = [
-      /Won't Believe/i,
-      /Secret/i,
-      /Top[0-9]*/i,
+    CLICKBAIT_PHRASES = [                  #regular expression. That's why there's slashes.
+      /Won't Believe/i,                     #the i makes it case insensitive
+      /Secret/i,                            #must do this way bc the phrase just has to contain
+      /Top[0-9]*/i,                         #it, it doesn't have to match exactly
       /Guess/i
       ]
 
