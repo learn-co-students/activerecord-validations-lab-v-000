@@ -3,8 +3,8 @@ class Post < ActiveRecord::Base
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
   validates :category, inclusion: {in: %w(Fiction Non-Fiction)}
-  validate :title_is_click_bait_y
-  def title_is_click_bait_y
+  validate :click_bait
+  def click_bait
     baits = ['Won\'t Believe', 'Secret', 'Top', 'Guess']
     test = baits.any? {|bait| title.include?(bait) if title}
     unless test
