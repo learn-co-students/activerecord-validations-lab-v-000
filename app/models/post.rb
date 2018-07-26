@@ -1,7 +1,11 @@
 class Clickbait < ActiveModel::Validator
   def validate(record) 
-    unless ["Won't Believe", "Secret", /[Top]+\s+\d*/, "Guess"].include? (record)
-      record.errors[:title] << "Needs to be more clickbaity"
+    unless record.title.nil?
+      clicks = [/Won't Believe/, /Secret/, /Guess/, /[Top]+\s+\d*/]
+      re = Regexp.union(clicks)
+      unless record.title.match(re) 
+        record.errors[:title] << "Needs to be more clickbaity"
+      end
     end
   end
 end
@@ -18,6 +22,7 @@ class Post < ActiveRecord::Base
   validates :summary, length: { maximum: 250 } 
   validates :category, inclusion: { in: ["Fiction","Non-Fiction"] }
   validates :category, exclusion: { in: [nil] }
+  validates :title, presence: true
 
 end
   
