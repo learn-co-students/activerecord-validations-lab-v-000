@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   def title_has_keywords
     if !!title
       unless ["Won't Believe", "Secret", "Top [number]", "Guess"].detect{|bait| title.include?(bait)}
-        errors[:title] << 'Requires a click-bait title'
+        errors.add(:title, "Requires a click-bait' title")
       end
     end
   end
