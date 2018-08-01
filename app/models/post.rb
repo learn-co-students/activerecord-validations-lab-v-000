@@ -6,9 +6,10 @@ class Post < ActiveRecord::Base
     validate :is_clickbait? 
    
     def is_clickbait?
-        words =  [/Won't Believe/, /Secret/, /Top [0-9]/, /Guess/]
+        words =  [/Won't Believe/, /Secret/, /Top [0-9]/, /Guess/]  # we had to make such like regaex methods.
          if words.none?{|word|word.match title}  
          errors.add(:title, "word dont match")
+
          end
     end
 
