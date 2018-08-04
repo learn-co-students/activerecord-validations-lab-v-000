@@ -7,11 +7,16 @@ class Post < ActiveRecord::Base
 
   def title_must_be_clickbaity
     if self.title != nil
-      result = !self.title.scan(/Won't Believe|Secret|Guess|Top \d/).empty?
+      val = !self.title.scan(/Won't Believe|Secret|Guess|Top \d/).empty?
     else 
-      result = false
+      val = false
     end
-    result
+
+    if !val
+      self.errors[:title] << "Must be clikcbaity!"
+    end
+    val
+
   end
   
 end
