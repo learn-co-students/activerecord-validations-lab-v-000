@@ -1,4 +1,4 @@
-class CheckClickBait < ActiveModel::Validator
+class ClickBaitValidator < ActiveModel::Validator
   
   @@clickbait_patterns = [/Won't Believe/i, /Secret/i, /Top [0-99]/i, /Guess/i]
   
