@@ -7,16 +7,14 @@ class Post < ActiveRecord::Base
     validate :catchy?
     #validates :title, inclusion: {in: ["Secret", "Top /[1234567890]/", "Won't Believe", "Guess"]}
     
+
     def catchy?
-        if self.title == nil
-            false
-        elsif self.title.include?("Secret")
-       elsif self.title.include?("Top /[1234567890]/")
-        elsif self.title.include?("Won't Believe")
-        elsif self.title.include?("Guess")
-        else 
-            false
-        end 
-    end
+	    return false if title == nil
+        unless ["Won't Believe", "Secret", "Guess"].any? {|cb| title.match(cb)} || self.title.match(/Top \d*/)
+            errors.add(:title, "title is not clickbaity enough")
+        end
+	end
+
+
 
 end
