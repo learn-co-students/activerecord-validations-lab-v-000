@@ -1,0 +1,11 @@
+Author
+  is valid
+  is invalid with no name (FAILED - 1)  is invalid with a short number (FAILED - 2)
+  is invalid when non-unique (FAILED - 3)
+Post
+  is valid
+  is invalid without a title (FAILED - 4)
+  is invalid with too short content (FAILED - 5)
+  is invalid with a long summary (FAILED - 6)
+  is invalid with a category outside the choices (FAILED - 7)
+  is invalid if not clickbait (FAILED - 8)
