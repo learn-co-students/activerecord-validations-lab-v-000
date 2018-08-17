@@ -11,7 +11,13 @@ class Post < ActiveRecord::Base
     def clickbait_title
       words = ["Won't Believe", "Secret", "Guess"]
       
-      unless title.in?(words) || title.match?(/Top [0-9]/)
+      has_words = words.any? do |word|
+        title.include?(word)
+      end
+
+      binding.pry
+
+      unless has_words || title.match(/Top [0-9]/)
         errors.add(:title, "Needs more clickbait!")
       end
     end
