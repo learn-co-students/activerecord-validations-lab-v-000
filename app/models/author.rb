@@ -1,7 +1,7 @@
+
 class Author < ActiveRecord::Base
   
-  name - unique, required 
-  
-  phone # - 10 digit 
+  validates :name, presence: true, uniqueness: true
+  validates :phone_number, length: { is: 10 }
   
 end
