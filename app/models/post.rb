@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   validates :title, presence: true
-  validates :content, length 250 min
-  validates :summary, length 250 max
+  validates :content, length: { minimum: 250}
+  validates :summary, length: {maximum: 250}
   validates :category fiction or non (inclusion)
+  validates :title, includes? "Won't Believe", "Secret", "Top [number]", or "Guess"
 end
