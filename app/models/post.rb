@@ -9,13 +9,10 @@ class Post < ActiveRecord::Base
     private
 
     def post_title_includes
-        if title.valid? == 'true'
+        if title != nil
             unless title.include? "Won't Believe" || "Secret" || "Top [number]" || "Guess"
                 errors.add(:title, "false")
             end
-        else
-            errors.add(:title, "false")
-        end
         end
     end
 end
