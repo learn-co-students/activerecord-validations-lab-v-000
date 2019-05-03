@@ -10,6 +10,7 @@ class TitleValidator < ActiveModel::Validator
 
   def validate(record)
     clickbait = ["Won't", "Believe", "Secret", "Top", "Guess"]
+    binding.pry
     unless record.title.split.select { |word| clickbait.include?(word) }
       record.errors[:title] << "Include some clickbait in your title"
     end
