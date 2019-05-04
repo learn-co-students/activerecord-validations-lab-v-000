@@ -11,7 +11,9 @@ class Post < ActiveRecord::Base
     clickbait_words = ["Won't Believe", "Secret", "Top", "Guess"]
 
     if !title.nil?
-      clickbait_words.any? { |clickbait| title.include?(clickbait) }
+      if !clickbait_words.any? { |clickbait| title.include?(clickbait) }
+        errors.add(:title, "Not cickbaity enough!")
+      end
     end
   end
 
