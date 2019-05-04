@@ -4,10 +4,10 @@ class Post < ActiveRecord::Base
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-fiction) }
 
-  validate :non_clickbait?
+  validate :clickbait?
 
 
-  def non_clickbait?
+  def clickbait?
     clickbait_words = ["Won't Believe", "Secret", "Top", "Guess"]
 
     if !title.nil?
