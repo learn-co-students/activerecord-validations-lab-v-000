@@ -3,13 +3,13 @@ class Post < ActiveRecord::Base
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
   validates :category, inclusion: {in: ["Fiction", "Non-Fiction"]}
-  validate :is_clickbait?
+  validate :title_is_clickbait?
 
 
-  def is_clickbait?
+  def title_is_clickbait?
     clickbait = [/Won't Believe/i, /Secret/i, /Top [0-9]*/i, /Guess/i]
-    if clickbait.none? {|regx| regx.match title}
-      errors.add(:title, "your title is not clickbait-y enough")
+    if clickbait.none? {|regx| regx.match self.title}
+      errors.add(:title, "Your title is not clickbait-y enough")
     end
   end
 end
