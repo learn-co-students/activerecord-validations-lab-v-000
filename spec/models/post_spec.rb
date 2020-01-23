@@ -22,7 +22,7 @@ RSpec.describe Post, type: :model do
   it "is valid" do
     expect(valid_post).to be_valid
   end
-
+  
   it "is invalid without a title" do
     expect(missing_title).to be_invalid
   end
